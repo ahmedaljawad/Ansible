@@ -1,0 +1,13 @@
+---
+- name: first network playbook with when
+  connection: network_cli
+  gather_facts: false
+  hosts: NXOS-faivty-0ne 
+  tasks:
+    - name: backup
+      nxos_config:
+        backup: yes
+      register: backup_nxos_location
+      when: ansible_network_os == 'nxos'
+...
+
